@@ -80,15 +80,3 @@ private:
 	Node* head = nullptr;
 };
 
-int main() {
-	LinkedList ll;
-	ll.InsertAtNode(2);
-	ll.InsertFront(5);
-	ll.PrintList();
-	std::cout << "\n";
-	ll.DeleteNode(2);
-	ll.PrintList();
-	std::cout << "\n";
-	ll.DeleteNode(5);
-
-}
