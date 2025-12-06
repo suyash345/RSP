@@ -109,6 +109,13 @@ private:
 			return nullptr;
 		}
 		if (node->val == val) {
+			Node* node_left = node;
+			Node* node_right = node;
+			while (node_left != nullptr) { // recursive delete.
+				Node* temp = node_left; 
+				delete node_left;
+				node_left->left 
+			}
 			delete node;
 			return nullptr;
 		}
