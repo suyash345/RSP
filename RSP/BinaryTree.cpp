@@ -44,7 +44,7 @@ public:
 	}
 
 	void DeleteNode(int n) {
-		return;
+		HelperDelete(head, n);
 	}
 
 	void InOrderTraversal(Node * node) {
@@ -104,19 +104,20 @@ public:
 
 private:
 	Node* head = nullptr;
+	Node* HelperDelete(Node* node, int val) {
+		if (node == nullptr) {
+			return nullptr;
+		}
+		if (node->val == val) {
+			delete node;
+			return nullptr;
+		}
+		if (val<node->val ) {
+			node->left = HelperDelete(node->left, val);
+		}
+		if (val > node->val) {
+			node->right= HelperDelete(node->right, val);
+		}
+		return node;
+	}
 };
-
-
-int main() {
-	BinaryTree bt;
-	bt.InsertNode(5);
-	bt.InsertNode(6);
-	bt.InsertNode(3);
-
-	bt.PreOrderTraversal(bt.GetNode(5));
-	std::cout << "\n";
-	bt.InOrderTraversal(bt.GetNode(5));
-	std::cout << "\n";
-	bt.PostOrderTraversal(bt.GetNode(5));
-
-}
