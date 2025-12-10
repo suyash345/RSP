@@ -1,10 +1,5 @@
 #include <iostream>
-
-struct Node {
-	int val;
-	Node* right;
-	Node* left;
-};
+#include "Node.cpp"
 
 
 void DFS(Node* node) {

@@ -1,6 +1,6 @@
 #include "BinaryTree.cpp"
-//#include "LinkedList.cpp"
-#include "AdjaceyList.cpp"
+#include "LinkedList.cpp"
+//#include "AdjacencyList.cpp"
 
 int main() {
 	BinaryTree bt;
@@ -15,6 +15,4 @@ int main() {
 	
 	std::cout << "\n";
 	bt.PostOrderTraversal(bt.GetNode(5));
-
-
 }

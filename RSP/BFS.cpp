@@ -1,11 +1,6 @@
 #include <queue>
 #include <iostream>
-
-struct Node {
-	int val;
-	Node* right;
-	Node* left;
-};
+#include "Node.cpp"
 
 
 void BFS(Node* node) {

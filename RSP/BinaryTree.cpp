@@ -1,11 +1,6 @@
 #include <iostream>
 #include <stack>
-
-struct Node {
-	int val;
-	Node* right;
-	Node* left;
-};
+#include "Node.cpp"
 
 
 class BinaryTree {
@@ -111,12 +106,7 @@ private:
 		if (node->val == val) {
 			Node* node_left = node;
 			Node* node_right = node;
-			while (node_left != nullptr) { // recursive delete.
-				Node* temp = node_left; 
-				delete node_left;
-				node_left->left 
-			}
-			delete node;
+			Delete(node);
 			return nullptr;
 		}
 		if (val<node->val ) {
@@ -126,5 +116,14 @@ private:
 			node->right= HelperDelete(node->right, val);
 		}
 		return node;
+	}
+
+	void Delete(Node* node) {
+		if (node == nullptr) {
+			return;
+		}
+		Delete(node->right);
+		Delete(node->left);
+		delete node;
 	}
 };

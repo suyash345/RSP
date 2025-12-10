@@ -1,36 +1,36 @@
 #include <iostream>
 
-struct Node {
+struct LinkedListNode {
 	int value;
-	Node* next;
+	LinkedListNode* next;
 };
 
 class LinkedList {
 public:
 	void DeleteNode(int n) {
-		Node* delete_next_to_me = FindNode(n);
+		LinkedListNode* delete_next_to_me = FindNode(n);
 		if (delete_next_to_me == nullptr) {
 			return;
 		}
 
-		Node* next = delete_next_to_me->next->next;
+		LinkedListNode* next = delete_next_to_me->next->next;
 		delete delete_next_to_me->next;
 		delete_next_to_me->next = next;		
 	}
 
 	void InsertAtNode(int n) {
 		if (IsEmpty()) {
-			head = new Node();
+			head = new LinkedListNode();
 			head->value = n;
 			return;
 		}
 
-		Node* insert_next_to_me = FindNode(n);
+		LinkedListNode* insert_next_to_me = FindNode(n);
 		if (insert_next_to_me == nullptr) {
 			std::cout << "ERROR INSERTING";
 			return;
 		}
-		Node* new_node = new Node();
+		LinkedListNode* new_node = new LinkedListNode();
 		new_node->value = n;
 		new_node->next = insert_next_to_me->next;
 		insert_next_to_me->next = new_node;
@@ -38,17 +38,17 @@ public:
 
 	void InsertFront(int n) {
 		if (IsEmpty()) {
-			head = new Node();
+			head = new LinkedListNode();
 			head->value = n;
 		}
-		Node* new_node = new Node();
+		LinkedListNode* new_node = new LinkedListNode();
 		new_node->value = n;
 		new_node->next = head;
 		head = new_node;
 	}
 
 	void PrintList() {
-		Node* dummy = head;
+		LinkedListNode* dummy = head;
 		while (dummy != nullptr) {
 			std::cout << dummy->value << " ";
 			dummy = dummy->next;
@@ -56,9 +56,9 @@ public:
 	}
 
 private:
-	Node* FindNode(int n) {
-		Node* dummy = head;
-		Node* prev = dummy;
+	LinkedListNode* FindNode(int n) {
+		LinkedListNode* dummy = head;
+		LinkedListNode* prev = dummy;
 		while (dummy != nullptr) {
 			if (dummy->value == n) {
 				return prev; // return the previous node.
@@ -77,6 +77,6 @@ private:
 		return false;
 	}
 
-	Node* head = nullptr;
+	LinkedListNode* head = nullptr;
 };
 
